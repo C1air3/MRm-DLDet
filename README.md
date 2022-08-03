@@ -2,6 +2,8 @@
 
 MRm-DLDet is a memory-resident malware detection framework, MRm-DLDet first deduplicates memory data, then converts them to high-resolution RGB images, followed by a neural network (ResNet 18+GRU+Attention) to fully extract high-dimensional features from memory dump files and classify them.
 
+## Dataset
+The file named 'Memory-Resident Samples' Hash' shows  the sha-256 value of the total 1050 memory-resident malware we collected in this work.
 ## Installation
 
 ### Dependencies
