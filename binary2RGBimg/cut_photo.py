@@ -12,26 +12,24 @@ import time
 
 def splitimage(src, rownum, colnum, dstpath, overlap_pix,dump_image):
     if os.path.exists(src):
-        print('File exist')
+        print('Exist')
     else:
-        print('File not exist')
+        print('Not exist')
         return
 
     if os.path.isdir(dstpath):
         print('Directory exist')
         pass
     else:
-        print('Directory not exist, create one')
+        print('Create Directory')
         os.mkdir(dstpath)
     Image.MAX_IMAGE_PIXELS = None
     img = Image.open(src)
-    img1 = img.resize((4480,4480), Image.ANTIALIAS)
+    img1 = img.resize((5600,5600), Image.ANTIALIAS)
 
     w, h = img1.size
 
     if rownum <= h and colnum <= w:
-        print('Original image info: %sx%s, %s, %s' % (w, h, img.format, img.mode))
-
         s = os.path.split(src)
         if dstpath == '':
             dstpath = s[0]
@@ -41,8 +39,8 @@ def splitimage(src, rownum, colnum, dstpath, overlap_pix,dump_image):
 
         num = 0
 
-        rowheight = h // (rownum - overlap_pix) + 1
-        colwidth = w // (colnum - overlap_pix) + 1
+        rowheight = h // rownum
+        colwidth = w // colnum
 
         for r in range(rowheight):
             for c in range(colwidth):
@@ -60,8 +58,7 @@ def splitimage(src, rownum, colnum, dstpath, overlap_pix,dump_image):
                 Ry = Ly + rownum
 
                 box = (Lx, Ly, Rx, Ry)
-                img.crop(box).save(os.path.join(dstpath, dump_image+'_'+str(Lx) + '_' + str(Ly) + '_' + str(num) + '.' + ext))
-                # crop(left, upper, right, lower) 名字中带有图像坐标
+                img1.crop(box).save(os.path.join(dstpath, dump_image + '_' + str(num) +'_'+str(Lx) + '_' + str(Ly) + '.' + ext))
                 num = num + 1
 
         print('The image is cut and a total of %s of small images are generated.' % num)
