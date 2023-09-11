@@ -33,5 +33,5 @@ This script covert one dump file to an RGB image.
 
 Cut Ultra-High Resolution RGB image with non-overlapping sliding window.
 
-### Cite Our Paer
-Liu, J., Feng, Y., Liu, X. et al. MRm-DLDet: a memory-resident malware detection framework based on memory forensics and deep neural network. Cybersecurity 6, 21 (2023). https://doi.org/10.1186/s42400-023-00157-w
+### Cite Our Paper
+Liu Jiaxi, Feng Yun, Liu Xinyu, et al. MRm-DLDet: a memory-resident malware detection framework based on memory forensics and deep neural network[J]. Cybersecurity, 2023, 6(1): 21.
